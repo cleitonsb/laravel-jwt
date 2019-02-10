@@ -16,7 +16,8 @@ class CreateCabelosTable extends Migration
         Schema::create('tb_cabelo', function (Blueprint $table) {
             $table->increments('co_cabelo');
             $table->string('nome', 60);
-            $table->boolean('situacao');
+            $table->boolean('situacao')->default(true);
+            $table->softDeletes();
         });
     }
 

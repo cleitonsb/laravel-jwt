@@ -15,8 +15,8 @@ class CreateEtiniasTable extends Migration
     {
         Schema::create('tb_etinia', function (Blueprint $table) {
             $table->increments('co_etinia');
-            $table->string('nome', 60);
-            $table->boolean('situacao');
+            $table->string('nome', 45);
+            $table->softDeletes();
         });
     }
 

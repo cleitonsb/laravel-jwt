@@ -16,7 +16,8 @@ class CreateOlhosTable extends Migration
         Schema::create('tb_olhos', function (Blueprint $table) {
             $table->increments('co_olhos');
             $table->string('nome', 60);
-            $table->boolean('situacao');
+            $table->boolean('situacao')->default(true);
+            $table->softDeletes();
         });
     }
 

@@ -18,25 +18,21 @@ class CreateAnunciosTable extends Migration
             $table->unsignedInteger('co_usuario');
             $table->integer('idade');
             $table->decimal('peso', 5, 2);
-            $table->boolean('cartao');
+            $table->boolean('cartao')->default(true);
             $table->decimal('altura', 5, 2);
-            $table->integer('horario');
-            $table->boolean('viagem');
-            $table->boolean('local');
-            $table->integer('atende');
-            $table->boolean('anal');
-            $table->boolean('oralsem');
-            $table->boolean('beijo');
-            $table->boolean('acessorios');
+            $table->integer('horario')->default(1);
+            $table->boolean('viagem')->default(true);
+            $table->boolean('local')->default(true);
+            $table->integer('atende')->default(1);
+            $table->boolean('anal')->default(true);
+            $table->boolean('oralsem')->default(false);
+            $table->boolean('beijo')->default(true);
+            $table->boolean('acessorios')->default(true);
             $table->text('descricao');
-            $table->boolean('situacao');
             $table->unsignedInteger('co_etinia');
-            $table->unsignedInteger('co_cabelo');
-            $table->unsignedInteger('co_olhos');
             $table->foreign('co_usuario')->references('co_usuario')->on('tb_usuario');
             $table->foreign('co_etinia')->references('co_etinia')->on('tb_etinia');
-            $table->foreign('co_cabelo')->references('co_cabelo')->on('tb_cabelo');
-            $table->foreign('co_olhos')->references('co_olhos')->on('tb_olhos');
+            $table->softDeletes();
         });
     }
 

@@ -16,8 +16,8 @@ class CreateEstadosTable extends Migration
         Schema::create('tb_estado', function (Blueprint $table) {
             $table->increments('co_estado');
             $table->string('nome', 60);
-            $table->string('ibge', 10);
-            $table->boolean('situacao');
+            $table->string('ibge', 10)->nullable()->default(null);
+            $table->softDeletes();
         });
     }
 

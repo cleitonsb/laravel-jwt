@@ -16,7 +16,7 @@ class CreateIdiomasTable extends Migration
         Schema::create('tb_idioma', function (Blueprint $table) {
             $table->increments('co_idioma');
             $table->string('nome', 60);
-            $table->boolean('situacao');
+            $table->softDeletes();
         });
     }
 
