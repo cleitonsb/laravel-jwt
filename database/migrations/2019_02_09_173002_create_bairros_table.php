@@ -16,9 +16,9 @@ class CreateBairrosTable extends Migration
         Schema::create('tb_bairro', function (Blueprint $table) {
             $table->increments('co_bairro');
             $table->string('nome', 60);
-            $table->boolean('situacao');
             $table->unsignedInteger('co_cidade');
             $table->foreign('co_cidade')->references('co_cidade')->on('tb_cidade');
+            $table->softDeletes();
         });
     }
 

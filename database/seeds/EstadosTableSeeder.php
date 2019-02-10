@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class EstadosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\User::class,1)->create([
-            'email' => 'admin@user.com'
+        DB::table('tb_estado')->insert([
+            'co_estado' => 1,
+            'nome' => 'Distrito Federal',
         ]);
     }
 }

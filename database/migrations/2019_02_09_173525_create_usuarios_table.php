@@ -17,12 +17,12 @@ class CreateUsuariosTable extends Migration
             $table->increments('co_usuario');
             $table->string('nome', 60);
             $table->integer('co_perfil');
-            $table->string('sexo', 1);
-            $table->boolean('situacao');
+            $table->enum('sexo', ['M', 'F']);
             $table->string('email', 60);
-            $table->string('senha', 45);
+            $table->string('senha');
             $table->unsignedInteger('co_bairro');
             $table->foreign('co_bairro')->references('co_bairro')->on('tb_bairro');
+            $table->softDeletes();
         });
     }
 

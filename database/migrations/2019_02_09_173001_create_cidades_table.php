@@ -16,10 +16,10 @@ class CreateCidadesTable extends Migration
         Schema::create('tb_cidade', function (Blueprint $table) {
             $table->increments('co_cidade');
             $table->string('nome', 60);
-            $table->string('ibge', 10);
-            $table->boolean('situacao');
+            $table->string('ibge', 10)->nullable()->default(null);
             $table->unsignedInteger('co_estado');
             $table->foreign('co_estado')->references('co_estado')->on('tb_estado');
+            $table->softDeletes();
         });
     }
 
