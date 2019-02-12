@@ -56,4 +56,9 @@ class Usuario extends Authenticatable implements JWTSubject
             'email' => $this->email
         ];
     }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['senha'] = \Hash::make($password);
+    }
 }

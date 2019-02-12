@@ -12,6 +12,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+
         $this->validateLogin($request);
 
         $credentials = $this->credentials($request);
