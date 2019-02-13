@@ -2,12 +2,16 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class Usuario extends Authenticatable implements JWTSubject
 {
+
+    use SoftDeletes;
+
     protected $table = 'tb_usuario';
 
     protected $primaryKey = 'co_usuario';
@@ -22,7 +26,12 @@ class Usuario extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'senha', 'sexo', 'co_bairro', 'co_perfil',
+        'nome',
+        'email',
+        'senha',
+        'sexo',
+        'co_bairro',
+        'co_perfil',
     ];
 
     /**
@@ -57,8 +66,9 @@ class Usuario extends Authenticatable implements JWTSubject
         ];
     }
 
-    public function setPasswordAttribute($password)
+    public function bairro()
     {
-        $this->attributes['senha'] = \Hash::make($password);
+        return $this->hasOne('App\Bairro', 'co_bairro', 'co_bairro');
     }
+
 }

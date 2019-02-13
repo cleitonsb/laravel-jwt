@@ -20,13 +20,15 @@ Route::middleware('auth:api')->get('/usuario', function (Request $request) {
 
 Route::name('api.login')->post('login', 'Api\AuthController@login');
 
+Route::group(['middleware' => 'auth:api'], function(){
 
-//Route::post('refresh', 'Api\AuthController@refresh');
-//
-//
-////Req 1 - token XXX - refresh token - YYY
-////req2 - token XXX
-////req3 - token XXX
+    Route::get('usuarios', 'Api\UsuarioController@index');
+    Route::post('logout', 'Api\AuthController@logout');
+
+
+    //Route::resource('clients', 'ClientController', ['except' => ['create', 'edit']]);
+});
+
 //
 //Route::group(['middleware' => ['auth:api','jwt.refresh']], function(){
 //    Route::get('users', function(){
@@ -35,5 +37,15 @@ Route::name('api.login')->post('login', 'Api\AuthController@login');
 //    Route::post('logout', 'Api\AuthController@logout');
 //    //Route::resource('clients', 'ClientController', ['except' => ['create', 'edit']]);
 //});
+
+
+//Route::post('refresh', 'Api\AuthController@refresh');
+//
+//
+////Req 1 - token XXX - refresh token - YYY
+////req2 - token XXX
+////req3 - token XXX
+//
+
 //
 ////Auth::guard('api')->user()

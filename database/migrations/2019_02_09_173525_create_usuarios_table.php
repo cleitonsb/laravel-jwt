@@ -20,6 +20,7 @@ class CreateUsuariosTable extends Migration
             $table->enum('sexo', ['M', 'F']);
             $table->string('email', 60);
             $table->string('password');
+            $table->string('fone', 20);
             $table->unsignedInteger('co_bairro');
             $table->foreign('co_bairro')->references('co_bairro')->on('tb_bairro');
             $table->softDeletes();
