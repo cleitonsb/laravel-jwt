@@ -9,5 +9,5 @@ interface RepositoryInterface
 
     public function find($id);
 
-    public function findBy($att, $column);
+    public function findBy($column, $operator, $value);
 }

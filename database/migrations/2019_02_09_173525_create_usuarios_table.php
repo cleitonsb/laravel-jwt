@@ -16,7 +16,7 @@ class CreateUsuariosTable extends Migration
         Schema::create('tb_usuario', function (Blueprint $table) {
             $table->increments('co_usuario');
             $table->string('nome', 60);
-            $table->integer('co_perfil');
+            $table->integer('co_perfil')->default(2);
             $table->enum('sexo', ['M', 'F']);
             $table->string('email', 60);
             $table->string('password');
