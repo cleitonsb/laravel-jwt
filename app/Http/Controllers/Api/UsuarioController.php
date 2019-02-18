@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\UsuarioRequest;
 use App\Repositories\UsuarioRepository;
+use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,14 +33,14 @@ class UsuarioController extends Controller
         return $this->usuario->update($request->all());
     }
 
-    public function show(Product $product)
+    public function show(Usuario $usuario)
     {
-        return $product;
+        return $this->usuario->find($usuario);
     }
 
-    public function destroy(Request $request)
+    public function destroy(Usuario $usuario)
     {
-        return $this->usuario->delete($request->all());
+        $usuario->delete();
     }
 
 

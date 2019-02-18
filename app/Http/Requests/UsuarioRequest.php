@@ -31,6 +31,19 @@ class UsuarioRequest extends FormRequest
             'password'  => 'required',
             'fone'      => 'required|numeric',
             'co_bairro' => 'required|exists:tb_bairro,co_bairro',
+            'dt_nasc'   => 'required|date_format:"Y-m-d"',
+            'peso'      => 'required|numeric',
+            'cartao'    => ['required', Rule::in(['0', '1'])],
+            'altura'    => 'required|numeric',
+            'horario'   => 'required',
+            'viagem'    => ['required', Rule::in(['0', '1'])],
+            'local'     => 'required',
+            'atende'    => ['required', Rule::in(['M', 'F', 'A'])],
+            'anal'      => ['required', Rule::in(['0', '1'])],
+            'oralsem'   => ['required', Rule::in(['0', '1'])],
+            'beijo'     => ['required', Rule::in(['0', '1'])],
+            'acessorios'=> ['required', Rule::in(['0', '1'])],
+            'co_etinia' => 'required|exists:tb_etinia,co_etinia',
         ];
     }
 }

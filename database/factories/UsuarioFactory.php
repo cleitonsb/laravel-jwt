@@ -11,5 +11,16 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
         'sexo' => $faker->randomElement(['F','M']),
         'co_bairro' => rand(1,30),
         'fone' => $faker->phoneNumber,
+        'dt_nasc' => $faker->date('Y-m-d','2000-01-01'),
+        'peso' => $faker->randomFloat(2, 45,100),
+        'altura' => $faker->randomFloat(2, 1,2),
+        'horario' => rand(1,4),
+        'atende' => rand(1,3),
+        'anal' => $faker->boolean(90),
+        'oralsem' => $faker->boolean(90),
+        'beijo' => $faker->boolean(90),
+        'acessorios' => $faker->boolean(90),
+        'descricao' => $faker->sentence(),
+        'co_etinia' => rand(1,5),
     ];
 });

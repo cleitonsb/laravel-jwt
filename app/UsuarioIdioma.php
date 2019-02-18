@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Anuncio extends Model
+class UsuarioIdioma extends Model
 {
-    protected $table = 'tb_anuncio';
+    protected $table = 'rl_usuario_idioma';
     public $timestamps = false;
 }

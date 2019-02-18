@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AnunciosIdiomasTableSeeder extends Seeder
+class UsuariosIdiomasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class AnunciosIdiomasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\AnuncioIdioma::class, 100)->create();
+        factory(\App\UsuarioIdioma::class, 100)->create();
     }
 }

@@ -27,6 +27,10 @@ class Bairro extends Model
         'nome',
     ];
 
+    protected $hidden = [
+        'deleted_at'
+    ];
+
     public function usuario()
     {
         return $this->belongsTo('App\Usuario', 'co_bairro', 'co_bairro');

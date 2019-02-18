@@ -14,9 +14,9 @@ class Repository implements RepositoryInterface
         return $this->model->all();
     }
 
-    public function find($co_usuario)
+    public function find($id)
     {
-        return $this->model->find($co_usuario);
+        return $this->model->find($id);
     }
 
     public function findBy($column, $operator, $value)
@@ -32,10 +32,5 @@ class Repository implements RepositoryInterface
     public function update($data)
     {
         return $this->model->update($data);
-    }
-
-    public function delete($data)
-    {
-        return $this->model->delete($data);
     }
 }

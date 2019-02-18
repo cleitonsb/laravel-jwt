@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AnuncioIdiomaTable extends Migration
+class UsuarioIdiomaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AnuncioIdiomaTable extends Migration
      */
     public function up()
     {
-        Schema::create('rl_anuncio_idioma', function (Blueprint $table) {
-            $table->unsignedInteger('co_anuncio');
+        Schema::create('rl_usuario_idioma', function (Blueprint $table) {
+            $table->unsignedInteger('co_usuario');
             $table->unsignedInteger('co_idioma');
-            $table->foreign('co_anuncio')->references('co_anuncio')->on('tb_anuncio')->onDelete('cascade');
+            $table->foreign('co_usuario')->references('co_usuario')->on('tb_usuario')->onDelete('cascade');
             $table->foreign('co_idioma')->references('co_idioma')->on('tb_idioma')->onDelete('cascade');
         });
     }
@@ -28,6 +28,6 @@ class AnuncioIdiomaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rl_anuncio_idioma');
+        Schema::dropIfExists('rl_usuario_idioma');
     }
 }
