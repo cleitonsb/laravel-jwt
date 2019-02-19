@@ -9,7 +9,7 @@ class Repository implements RepositoryInterface
 {
     protected $model;
 
-    public function all()
+    public function findAll()
     {
         return $this->model->all();
     }
@@ -31,6 +31,7 @@ class Repository implements RepositoryInterface
 
     public function update($data)
     {
-        return $this->model->update($data);
+        $data->save();
+        return $data;
     }
 }

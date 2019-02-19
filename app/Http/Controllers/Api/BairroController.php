@@ -2,38 +2,20 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\Repositories\BairroRepository;
 use App\Http\Controllers\Controller;
 
 class BairroController extends Controller
 {
+    protected $bairro;
+
+    public function __construct(BairroRepository $bairro)
+    {
+        $this->bairro = $bairro;
+    }
+
     public function index()
     {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        return $this->bairro->findAll();
     }
 }

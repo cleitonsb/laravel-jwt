@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\UsuarioRequest;
 use App\Repositories\UsuarioRepository;
 use App\Usuario;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class UsuarioController extends Controller
 {
-
     protected $usuario;
 
     public function __construct(UsuarioRepository $usuario)
@@ -28,9 +26,9 @@ class UsuarioController extends Controller
         return $this->usuario->create($request->all());
     }
 
-    public function update(UsuarioRequest $request)
+    public function update(UsuarioRequest $request, Usuario $usuario)
     {
-        return $this->usuario->update($request->all());
+        return $this->usuario->update($usuario->fill($request->all()));
     }
 
     public function show(Usuario $usuario)

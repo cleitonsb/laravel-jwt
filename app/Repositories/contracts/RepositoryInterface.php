@@ -5,7 +5,7 @@ namespace App\Repositories\contracts;
 
 interface RepositoryInterface
 {
-    public function all();
+    public function findAll();
 
     public function find($id);
 

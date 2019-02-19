@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 class IdiomaController extends Controller
 {
-
     protected $idioma;
 
     public function __construct(IdiomaRepository $idioma)
@@ -17,6 +16,6 @@ class IdiomaController extends Controller
 
     public function index()
     {
-        return $this->idioma->all();
+        return $this->idioma->findAll();
     }
 }
